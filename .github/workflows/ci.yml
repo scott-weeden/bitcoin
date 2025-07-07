@@ -5,14 +5,8 @@
 name: CI
 on:
   # See: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request.
-  pull_request:
-  # See: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#push.
-  push:
-    branches:
-      - '**'
-    tags-ignore:
-      - '**'
-
+  workflow_dispatch:
+  
 concurrency:
   group: ${{ github.event_name != 'pull_request' && github.run_id || github.ref }}
   cancel-in-progress: true
@@ -161,7 +155,7 @@ jobs:
 
   windows-native-dll:
     name: ${{ matrix.job-name }}
-    runs-on: windows-2022
+    runs-on: [self-hosted, DIGITALIS-PURPU] 
 
     if: ${{ vars.SKIP_BRANCH_PUSH != 'true' || github.event_name == 'pull_request' }}
 
