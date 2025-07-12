@@ -35,4 +35,4 @@ classDiagram
 - Locate and read the definitions of `CBlock` and `CTransaction` in the codebase.
 - Write a short summary of how a Bitcoin block is structured.
 
-[Next: consensus/README.md](../consensus/README.md)
+[Next: consensus](../consensus/README.md)

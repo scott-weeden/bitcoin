@@ -1,0 +1,80 @@
+## MAJOR changes in Bitcoin Core over the past 15 years**, focusing on releases that likely resulted in significant binary size changes or major architectural shifts
+
+---
+
+### 1. **Bitcoin Core 0.13.0 (2016)**
+- **Segregated Witness (SegWit) code included**: Major protocol upgrade, new transaction and block formats, and new consensus rules (though not yet activated on mainnet).
+- **Hierarchical Deterministic (HD) Wallets**: BIP32 support, enabling wallets to generate all keys from a single seed.
+- **C++11 and Python 3 migration**: Modernized codebase, requiring newer compilers and interpreters.
+- **Database cache increased**: Default dbcache raised from 100 MiB to 300 MiB, likely increasing binary and runtime memory footprint.
+- **Compact Block support (BIP152)**: Improved block relay efficiency.
+
+---
+
+### 2. **Bitcoin Core 0.15.0 (2017)**
+- **Chainstate database overhaul**: Switched from per-transaction to per-output model, making the on-disk database ~15% larger, but with much faster validation and more predictable memory usage.
+- **Multi-wallet support**: Ability to load and manage multiple wallets simultaneously.
+- **LevelDB and SHA256 optimizations**: Upgraded dependencies and hardware acceleration, improving performance but also potentially increasing binary size.
+- **Numerous new RPCs and wallet features**.
+
+---
+
+### 3. **Bitcoin Core 0.21.0 (2021)**
+- **Tor v3 support and BIP155 address relay**: Major changes to peer address storage and relay, requiring new data structures.
+- **Descriptor wallets (SQLite backend)**: New wallet format using SQLite, breaking compatibility with legacy tools and increasing binary size due to new dependencies.
+- **Automatic wallet creation removed**: More explicit wallet management.
+- **New and updated RPCs, including `getindexinfo`, `bitcoin-cli -netinfo`, and more**.
+
+---
+
+### 4. **Bitcoin Core 22.0 (2021)**
+- **I2P support**: Added new network stack for privacy.
+- **Tor v2 support removed**: Dropped legacy code, possibly reducing binary size.
+- **Guix-based deterministic build system**: New build infrastructure, likely affecting binary layout and size.
+- **Bech32m address support (BIP350)**: New address format for future script upgrades.
+- **Coinstats Index and UTXO snapshot activation**: New index and snapshot features, increasing codebase and binary size.
+
+---
+
+### 5. **Bitcoin Core 25.0–27.0 (2023–2024)**
+- **Scanblocks and package relay**: New RPCs and mempool policies for advanced transaction handling.
+- **libbitcoinconsensus deprecated and removed**: Major library removed in v28.0, reducing binary size.
+- **BIP324 v2 transport protocol**: New encrypted P2P transport, increasing binary size and complexity.
+- **CoinGrinder coin selection algorithm**: New wallet algorithm for efficient coin selection.
+
+---
+
+### 6. **Bitcoin Core 28.0–29.0 (2024–2025)**
+- **Testnet4/BIP94 support**: New testnet, new network parameters.
+- **Windows data directory moved**: Affects installer and runtime, not binary size.
+- **JSON-RPC 2.0 support**: Major RPC server update.
+- **libbitcoinconsensus fully removed**: Significant reduction in binary size.
+- **CMake build system migration**: Replaced Autotools, changing build artifacts and possibly binary size.
+- **UPnP support dropped, NAT-PMP/PCP built-in**: Removed external dependencies, reducing binary size.
+- **Minimum compiler and OS requirements raised**: Dropped support for older systems, allowing for more modern code and potentially larger binaries.
+- **Block file XOR encryption**: New block storage format, increasing codebase size.
+
+---
+
+### 7. **Other Notable Major Changes**
+- **Descriptor wallets and SQLite**: Introduced in v0.21.0, likely a major binary size increase.
+- **Guix build system**: v22.0, new deterministic build process.
+- **Removal of legacy features**: Over time, dropping support for old protocols, OSes, and libraries has both increased and decreased binary size depending on the release.
+
+---
+
+### **Summary Table**
+
+| Release      | Major Change(s) Likely Affecting Binary Size/Architecture         |
+|--------------|------------------------------------------------------------------|
+| 0.13.0       | SegWit, HD wallets, C++11, dbcache increase                      |
+| 0.15.0       | Chainstate overhaul, multi-wallet, LevelDB/SHA256 optimizations  |
+| 0.21.0       | Descriptor wallets (SQLite), Tor v3, new RPCs                    |
+| 22.0         | I2P, Guix build, Bech32m, Coinstats Index, UTXO snapshot         |
+| 25.0–27.0    | Package relay, scanblocks, BIP324, libbitcoinconsensus removed   |
+| 28.0–29.0    | Testnet4, CMake, UPnP dropped, block file XOR, JSON-RPC 2.0      |
+
+---
+
+**In summary:**  
+The biggest binary and architectural changes in Bitcoin Core have come from new wallet formats (HD, descriptor wallets), major protocol upgrades (SegWit, BIP324, new testnets), database and index overhauls, and build system migrations (Guix, CMake). The removal of legacy libraries and protocols (libbitcoinconsensus, UPnP, Tor v2) also resulted in significant binary size reductions in recent years.

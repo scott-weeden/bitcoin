@@ -11,4 +11,4 @@ Defines policies for transaction relay, fee estimation, and mempool acceptance. 
 - What is the difference between consensus and policy?
 - What does "ephemeral" mean in the context of policy?
 
-[Next: index/README.md](../index/README.md)
+[Next: index](../index/README.md)

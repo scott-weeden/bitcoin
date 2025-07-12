@@ -26,3 +26,7 @@ target/
 /guix-build-*
 
 /ci/scratch/
+out/build/vs2022-static/CMakeCache.txt
+out/build/vs2022-static/.cmake/api/v1/query/client-vscode/query.json
+out/build/vs2022-static/CMakeFiles/cmake.check_cache
+.vscode/settings.json
