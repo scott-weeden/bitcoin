@@ -6,7 +6,7 @@ name: CI
 on:
   # See: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request.
   workflow_dispatch:
-  
+
 concurrency:
   group: ${{ github.event_name != 'pull_request' && github.run_id || github.ref }}
   cancel-in-progress: true
@@ -330,7 +330,4 @@ jobs:
             ${{ env.BASE_BUILD_DIR }}/src/univalue/*.exe
             ${{ env.BASE_BUILD_DIR }}/test/config.ini
 
-  windows-native-test:
-    name: 'Windows, test cross-built'
-    runs-on: [self-hosted, DIGITALIS-PURPU] 
-    needs: windows-cross
+
