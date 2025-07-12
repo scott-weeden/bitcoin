@@ -1,7 +1,38 @@
-Bitcoin Core integration/staging tree
-=====================================
+# Bitcoin Core integration/staging tree
 
-https://bitcoincore.org
+## Overview
+Bitcoin Core is the reference implementation of the Bitcoin protocol. It connects to the peer-to-peer network, validates blocks and transactions, and provides a wallet and graphical user interface. The project is organized into several major subsystems:
+- **Kernel:** Validation, block processing, chainstate management
+- **Consensus:** Block and transaction rules
+- **Wallet:** Key management, address generation, transaction signing
+- **Node:** Node state and network logic
+- **Policy:** Local relay and mempool rules
+- **Util:** Utility functions (hashing, encoding, logging)
+- **Index:** Indexers for fast lookup (txindex, address index)
+- **Primitives:** Fundamental data types (blocks, transactions)
+
+## Node Types
+- **Full Node:** Stores and validates the entire blockchain
+- **Pruned Node:** Stores only recent blocks, discards old ones
+- **Lightweight Client:** Relies on full nodes for validation
+
+## Security Best Practices
+- Always verify binaries and signatures
+- Keep your node software up to date
+- Use strong passwords and encrypted wallets
+- Run nodes on secure, dedicated hardware
+
+## Testing
+Bitcoin Core uses unit, functional, integration, and fuzz tests. See `/src/test/README.md` and `/test` for details. CI runs on Windows, Linux, and macOS.
+
+## Community & Support
+- [bitcoincore.org](https://bitcoincore.org)
+- [BitcoinTalk Forum](https://bitcointalk.org)
+- [IRC #bitcoin-core-dev](https://webchat.freenode.net/?channels=bitcoin-core-dev)
+- [Transifex](https://explore.transifex.com/bitcoin/bitcoin/)
+
+## License
+Released under the MIT license. See [COPYING](COPYING).
 
 For an immediately usable, binary version of the Bitcoin Core software, see
 https://bitcoincore.org/en/download/.
@@ -14,12 +45,6 @@ validate blocks and transactions. It also includes a wallet and graphical user
 interface, which can be optionally built.
 
 Further information about Bitcoin Core is available in the [doc folder](/doc).
-
-License
--------
-
-Bitcoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
-information or see https://opensource.org/license/MIT.
 
 Development Process
 -------------------
