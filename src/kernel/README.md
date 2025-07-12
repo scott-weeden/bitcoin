@@ -3,11 +3,18 @@
 ## Purpose
 Contains kernel-level logic for validation, block processing, and chainstate management.
 
-<TODO:  WHAT ARE MEMPOOLS?  WHAT IS A DISCONNECTED TRANSACTION.  WHAT ARE THE PROPERTIES AND CHARACTERISTICS OF A MEMPOOL?>
+## What are mempools?
+A mempool (memory pool) is a data structure that stores unconfirmed transactions received by a node. Transactions in the mempool are waiting to be included in a block. The mempool enforces policy rules (such as minimum fee, standardness, and ancestor/descendant limits) and allows efficient transaction selection for mining.
 
-TODO: copilot - The kernel contains the most vital pieces of the software. For each header file describe the public, private and protected data structures, the data types, other kernel header includes files (in order to understand relationships between the kernel )
+## What is a disconnected transaction?
+A disconnected transaction is a transaction that was previously confirmed in a block but becomes unconfirmed due to a blockchain reorganization (reorg). During a reorg, blocks may be removed from the tip, and their transactions are temporarily "disconnected." The kernel tracks these transactions so they can be re-added to the mempool if they are not reconfirmed in the new chain.
 
-TODO: copilot - describe the lonely classes of the kernel. I.E. which of the c++ classes can be compiled by/ and of themselves, having no references to other classes or data types in the project?
+## Properties and characteristics of a mempool
+- Stores unconfirmed transactions, indexed by txid.
+- Enforces policy rules (fee, size, standardness).
+- Maintains ancestor/descendant relationships for efficient mining.
+- Periodically evicts transactions due to expiry, size limits, or conflicts.
+- Provides O(1) or O(log n) lookup and update operations.
 
 ## Key Classes
 - `ChainstateManager`: Manages multiple chainstates
